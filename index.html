@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telegram二维码扫描工具 - 扫描Telegram二维码并一键加入群组、频道或添加好友。支持摄像头扫描和图片上传，简单易用。">
+    <meta name="keywords" content="Telegram扫码,TG扫描,Telegram添加好友,Telegram怎么扫码,飞机加好友,Telegram二维码">
+    <meta name="author" content="Telegram QR Scanner">
+    <meta name="robots" content="index, follow">
+    
+    <!-- 社交媒体元标签 -->
+    <meta property="og:title" content="Telegram二维码扫描工具">
+    <meta property="og:description" content="扫描Telegram二维码并一键加入群组、频道或添加好友。支持摄像头扫描和图片上传，简单易用。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://telegram-qr-scanner.com/">
+    
+    <!-- 规范链接 -->
+    <link rel="canonical" href="https://telegram-qr-scanner.com/">
+    
+    <!-- 语言切换链接 -->
+    <link rel="alternate" hreflang="zh-CN" href="https://telegram-qr-scanner.com/">
+    <link rel="alternate" hreflang="en" href="https://telegram-qr-scanner.com/en/">
+    <link rel="alternate" hreflang="x-default" href="https://telegram-qr-scanner.com/">
+    
+    <title>Telegram二维码扫描工具 - 一键添加好友、加入群组和频道</title>
+    
+    <!-- 添加网站图标 -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    
+    <!-- 添加CSS样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/clipboard-paste.css">
+    
+    <!-- 添加字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Telegram二维码扫描工具",
+        "url": "https://telegram-qr-scanner.com/",
+        "description": "扫描Telegram二维码并一键加入群组、频道或添加好友。支持摄像头扫描和图片上传，简单易用。",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "inLanguage": ["zh-CN", "en"]
+    }
+    </script>
+</head>
+<body>
+    <!-- 页面头部 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="img/favicon.svg" alt="Telegram QR Scanner Logo">
+                <h1>Telegram二维码扫描</h1>
+            </div>
+            
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="pages/telegram-scan.html">扫码教程</a></li>
+                    <li><a href="pages/add-friends.html">添加好友</a></li>
+                    <li><a href="pages/desktop-login.html">电脑登录</a></li>
+                    <li><a href="pages/troubleshooting.html">常见问题</a></li>
+                    <li class="language-switcher">
+                        <a href="index.html" class="active">中文</a>
+                        <a href="en/index.html">English</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 主要内容 -->
+    <main>
+        <div class="container">
+            <!-- 页面头部 -->
+            <div class="page-header">
+                <h1>Telegram二维码扫描工具</h1>
+                <p>扫描Telegram二维码，一键添加好友、加入群组和频道</p>
+            </div>
+            
+            <!-- 扫描区域 -->
+            <div class="scanner-container">
+                <div class="scanner-header">
+                    <h2>开始扫描Telegram二维码</h2>
+                    <p>使用摄像头扫描二维码，或上传二维码图片，甚至直接粘贴剪贴板中的图片</p>
+                </div>
+                
+                <div class="scanner-options">
+                    <button id="start-scan-button" class="btn primary">
+                        <i class="fas fa-camera"></i> 开始扫描
+                    </button>
+                    <button id="stop-scan-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-stop"></i> 停止扫描
+                    </button>
+                    <button id="switch-camera-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-sync-alt"></i> 切换摄像头
+                    </button>
+                    <label id="file-button" class="btn secondary">
+                        <i class="fas fa-image"></i> 从相册选择
+                        <input type="file" id="qr-input-file" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                
+                <!-- 粘贴区域 -->
+                <div id="paste-container" class="paste-container">
+                    <div class="paste-icon">
+                        <i class="fas fa-paste"></i>
+                    </div>
+                    <div class="paste-text">
+                        <p>将图片粘贴到此处 (<span class="paste-shortcut">Ctrl+V</span> 或 <span class="paste-shortcut">⌘+V</span>)</p>
+                        <p>或者直接拖放图片文件</p>
+                    </div>
+                    <img id="paste-preview" class="paste-preview" src="" alt="预览">
+                    <div id="paste-clear" class="paste-clear">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                
+                <!-- 扫描预览 -->
+                <div id="qr-reader" style="display: none;"></div>
+                
+                <!-- 扫描结果 -->
+                <div id="qr-reader-results" style="display: none;"></div>
+            </div>
+            
+            <!-- 特性部分 -->
+            <div class="features">
+                <div class="features-header">
+                    <h2>为什么选择我们的Telegram二维码扫描工具？</h2>
+                    <p>简单、快速、安全的Telegram二维码扫描体验</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>快速扫描</h3>
+                        <p>实时摄像头扫描，秒速识别Telegram二维码，无需等待</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>移动优化</h3>
+                        <p>完美适配手机和平板，随时随地扫描Telegram二维码</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <h3>剪贴板粘贴</h3>
+                        <p>支持直接粘贴剪贴板中的图片，无需保存再上传</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>智能识别</h3>
+                        <p>自动识别Telegram链接类型，区分用户、群组和频道</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>安全可靠</h3>
+                        <p>所有处理在本地完成，不上传任何数据，保护您的隐私</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>多语言支持</h3>
+                        <p>支持中文和英文界面，满足不同用户的需求</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 教程部分 -->
+            <div class="tutorial-section">
+                <h2>如何使用Telegram二维码？</h2>
+                
+                <div class="tutorial-card">
+                    <h3>添加Telegram好友</h3>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>打开Telegram应用</h4>
+                                <p>在您的手机上打开Telegram应用，确保您已登录账号。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>获取好友的二维码</h4>
+                                <p>请好友打开Telegram，点击设置 → 个人资料 → 点击二维码图标生成自己的二维码。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>使用我们的工具扫描二维码</h4>
+                                <p>使用本网站扫描好友的二维码，然后点击生成的链接直接打开Telegram添加好友。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="pages/add-friends.html" class="btn outline">查看详细教程</a>
+                </div>
+                
+                <div class="tutorial-card">
+                    <h3>加入Telegram群组或频道</h3>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>获取群组或频道的二维码</h4>
+                                <p>群组管理员或频道创建者可以生成邀请二维码分享给您。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>使用我们的工具扫描二维码</h4>
+                                <p>使用本网站扫描群组或频道的二维码，系统会自动识别链接类型。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>点击链接加入</h4>
+                                <p>点击生成的链接，Telegram会自动打开并显示加入群组或订阅频道的选项。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="pages/telegram-scan.html" class="btn outline">查看详细教程</a>
+                </div>
+            </div>
+            
+            <!-- FAQ部分 -->
+            <div class="faq-container">
+                <h2>常见问题</h2>
+                
+                <div class="faq-item">
+                    <h3>Telegram的扫一扫在哪里？</h3>
+                    <div class="faq-answer">
+                        <p>在Telegram应用中，点击右上角的搜索图标，然后在搜索栏右侧会出现二维码图标，点击即可打开扫一扫功能。在某些版本中，您也可以在联系人页面右上角找到二维码图标。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>为什么我无法扫描Telegram二维码？</h3>
+                    <div class="faq-answer">
+                        <p>可能的原因包括：摄像头权限未开启、二维码图片不清晰、网络连接问题或Telegram应用版本过旧。建议检查这些问题，或尝试使用我们的网站扫描，然后点击生成的链接。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>如何在电脑上扫描Telegram二维码？</h3>
+                    <div class="faq-answer">
+                        <p>您可以使用我们的网站在电脑上通过摄像头扫描二维码，或者上传二维码图片，甚至直接粘贴剪贴板中的图片。扫描成功后，点击生成的链接即可在电脑上打开Telegram。</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Nicegram怎么扫二维码？</h3>
+                    <div class="faq-answer">
+                        <p>Nicegram是Telegram的第三方客户端，其扫码功能与官方Telegram类似。点击搜索图标，然后在搜索栏右侧点击二维码图标即可打开扫码功能。如果遇到问题，可以使用我们的网站扫描，然后点击链接在Nicegram中打开。</p>
+                    </div>
+                </div>
+                
+                <a href="pages/troubleshooting.html" class="btn outline">查看更多常见问题</a>
+            </div>
+            
+            <!-- CTA部分 -->
+            <div class="cta">
+                <div class="cta-content">
+                    <h2>立即开始使用Telegram二维码扫描工具</h2>
+                    <p>简单、快速、安全地扫描Telegram二维码，一键添加好友、加入群组和频道</p>
+                    <a href="#" class="btn primary" onclick="document.getElementById('start-scan-button').click(); return false;">开始扫描</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Telegram二维码扫描</h3>
+                    <p>简单、快速、安全地扫描Telegram二维码，一键添加好友、加入群组和频道。</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="pages/telegram-scan.html">扫码教程</a></li>
+                        <li><a href="pages/add-friends.html">添加好友</a></li>
+                        <li><a href="pages/desktop-login.html">电脑登录</a></li>
+                        <li><a href="pages/troubleshooting.html">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>相关资源</h3>
+                    <ul>
+                        <li><a href="https://telegram.org/" target="_blank">Telegram官网</a></li>
+                        <li><a href="https://telegram.org/faq" target="_blank">Telegram常见问题</a></li>
+                        <li><a href="https://telegram.org/apps" target="_blank">Telegram应用下载</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Telegram二维码扫描工具. 本工具与Telegram官方无关。</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 返回顶部按钮 -->
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- 添加JavaScript -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/clipboard-paste.js"></script>
+</body>
+</html>

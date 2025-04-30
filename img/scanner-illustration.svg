@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="64" fill="#F2F9FF"/>
+  
+  <!-- Scanner Frame -->
+  <rect x="96" y="96" width="320" height="320" rx="32" stroke="#0088CC" stroke-width="12" fill="none"/>
+  
+  <!-- Scanner Corners -->
+  <path d="M96 160 L96 128 Q96 96 128 96 L160 96" stroke="#0088CC" stroke-width="24" fill="none"/>
+  <path d="M352 96 L384 96 Q416 96 416 128 L416 160" stroke="#0088CC" stroke-width="24" fill="none"/>
+  <path d="M416 352 L416 384 Q416 416 384 416 L352 416" stroke="#0088CC" stroke-width="24" fill="none"/>
+  <path d="M160 416 L128 416 Q96 416 96 384 L96 352" stroke="#0088CC" stroke-width="24" fill="none"/>
+  
+  <!-- Scanner Center -->
+  <rect x="224" y="224" width="64" height="64" fill="#0088CC"/>
+  
+  <!-- Scanner Laser -->
+  <line x1="96" y1="256" x2="416" y2="256" stroke="#0088CC" stroke-width="4" stroke-dasharray="12 8"/>
+  
+  <!-- Telegram Logo (Simplified) -->
+  <circle cx="256" cy="256" r="48" fill="#0088CC" opacity="0.3"/>
+  <path d="M232 264 L240 280 L264 248 L288 272 L296 232 L272 248 L248 240 L232 264Z" fill="#0088CC"/>
+</svg>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telegram QR Code Scanner - Scan Telegram QR codes to join groups, channels or add friends with one click. Supports camera scanning and image upload, simple to use.">
+    <meta name="keywords" content="Telegram QR scanner, TG scan, Telegram add friends, how to scan Telegram QR code, Telegram QR code">
+    <meta name="author" content="Telegram QR Scanner">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Telegram QR Code Scanner">
+    <meta property="og:description" content="Scan Telegram QR codes to join groups, channels or add friends with one click. Supports camera scanning and image upload, simple to use.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zrylshzy.manus.space/en/">
+    
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://zrylshzy.manus.space/en/">
+    
+    <!-- Language Switcher Links -->
+    <link rel="alternate" hreflang="zh-CN" href="https://zrylshzy.manus.space/">
+    <link rel="alternate" hreflang="en" href="https://zrylshzy.manus.space/en/">
+    <link rel="alternate" hreflang="x-default" href="https://zrylshzy.manus.space/">
+    
+    <title>Telegram QR Code Scanner - Add Friends, Join Groups and Channels with One Click</title>
+    
+    <!-- Add Website Icon -->
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    
+    <!-- Add CSS Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/clipboard-paste.css">
+    
+    <!-- Add Font Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Telegram QR Code Scanner",
+        "url": "https://zrylshzy.manus.space/en/",
+        "description": "Scan Telegram QR codes to join groups, channels or add friends with one click. Supports camera scanning and image upload, simple to use.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "inLanguage": ["zh-CN", "en"]
+    }
+    </script>
+</head>
+<body>
+    <!-- Page Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../img/favicon.svg" alt="Telegram QR Scanner Logo">
+                <h1>Telegram QR Scanner</h1>
+            </div>
+            
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="pages/telegram-scan.html">Scan Tutorial</a></li>
+                    <li><a href="pages/add-friends.html">Add Friends</a></li>
+                    <li><a href="pages/desktop-login.html">Desktop Login</a></li>
+                    <li><a href="pages/troubleshooting.html">Troubleshooting</a></li>
+                    <li class="language-switcher">
+                        <a href="../index.html">中文</a>
+                        <a href="index.html" class="active">English</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Telegram QR Code Scanner</h1>
+                <p>Scan Telegram QR codes to add friends, join groups and channels with one click</p>
+            </div>
+            
+            <!-- Scanner Area -->
+            <div class="scanner-container">
+                <div class="scanner-header">
+                    <h2>Start Scanning Telegram QR Codes</h2>
+                    <p>Use your camera to scan QR codes, upload QR code images, or directly paste images from your clipboard</p>
+                </div>
+                
+                <div class="scanner-options">
+                    <button id="start-scan-button" class="btn primary">
+                        <i class="fas fa-camera"></i> Start Scanning
+                    </button>
+                    <button id="stop-scan-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-stop"></i> Stop Scanning
+                    </button>
+                    <button id="switch-camera-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-sync-alt"></i> Switch Camera
+                    </button>
+                    <label id="file-button" class="btn secondary">
+                        <i class="fas fa-image"></i> Choose from Gallery
+                        <input type="file" id="qr-input-file" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                
+                <!-- Paste Area -->
+                <div id="paste-container" class="paste-container">
+                    <div class="paste-icon">
+                        <i class="fas fa-paste"></i>
+                    </div>
+                    <div class="paste-text">
+                        <p>Paste an image here (<span class="paste-shortcut">Ctrl+V</span> or <span class="paste-shortcut">⌘+V</span>)</p>
+                        <p>Or drop an image file</p>
+                    </div>
+                    <img id="paste-preview" class="paste-preview" src="" alt="Preview">
+                    <div id="paste-clear" class="paste-clear">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                
+                <!-- Scanner Preview -->
+                <div id="qr-reader" style="display: none;"></div>
+                
+                <!-- Scanner Results -->
+                <div id="qr-reader-results" style="display: none;"></div>
+            </div>
+            
+            <!-- Features Section -->
+            <div class="features">
+                <div class="features-header">
+                    <h2>Why Choose Our Telegram QR Code Scanner?</h2>
+                    <p>Simple, fast, and secure Telegram QR code scanning experience</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Scanning</h3>
+                        <p>Real-time camera scanning, instantly recognizes Telegram QR codes with no waiting</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Optimized</h3>
+                        <p>Perfectly adapted for phones and tablets, scan Telegram QR codes anywhere, anytime</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <h3>Clipboard Paste</h3>
+                        <p>Supports directly pasting images from clipboard, no need to save and upload</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Smart Recognition</h3>
+                        <p>Automatically identifies Telegram link types, distinguishing between users, groups, and channels</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safe & Reliable</h3>
+                        <p>All processing is done locally, no data is uploaded, protecting your privacy</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Multilingual Support</h3>
+                        <p>Supports Chinese and English interfaces to meet different user needs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tutorial Section -->
+            <div class="tutorial-section">
+                <h2>How to Use Telegram QR Codes?</h2>
+                
+                <div class="tutorial-card">
+                    <h3>Add Telegram Friends</h3>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Open Telegram App</h4>
+                                <p>Open the Telegram app on your phone and make sure you're logged in.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Get Your Friend's QR Code</h4>
+                                <p>Ask your friend to open Telegram, go to Settings → Profile → Click the QR code icon to generate their QR code.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Use Our Tool to Scan the QR Code</h4>
+                                <p>Use this website to scan your friend's QR code, then click the generated link to directly open Telegram and add them.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="pages/add-friends.html" class="btn outline">View Detailed Tutorial</a>
+                </div>
+                
+                <div class="tutorial-card">
+                    <h3>Join Telegram Groups or Channels</h3>
+                    
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Get the Group or Channel QR Code</h4>
+                                <p>Group administrators or channel creators can generate invitation QR codes to share with you.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Use Our Tool to Scan the QR Code</h4>
+                                <p>Use this website to scan the group or channel QR code, the system will automatically identify the link type.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Click the Link to Join</h4>
+                                <p>Click the generated link, and Telegram will automatically open and display options to join the group or subscribe to the channel.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="pages/telegram-scan.html" class="btn outline">View Detailed Tutorial</a>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-container">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <h3>Where is the QR scanner in Telegram?</h3>
+                    <div class="faq-answer">
+                        <p>In the Telegram app, tap the search icon in the top right corner, then you'll see a QR code icon on the right side of the search bar. Tap it to open the QR scanner. In some versions, you can also find the QR code icon in the top right corner of the Contacts page.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Why can't I scan Telegram QR codes?</h3>
+                    <div class="faq-answer">
+                        <p>Possible reasons include: camera permissions not enabled, unclear QR code image, network connection issues, or outdated Telegram app version. We recommend checking these issues, or try using our website to scan and then click the generated link.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How to scan Telegram QR codes on a computer?</h3>
+                    <div class="faq-answer">
+                        <p>You can use our website to scan QR codes on your computer via webcam, upload QR code images, or even directly paste images from your clipboard. After successful scanning, click the generated link to open Telegram on your computer.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How to scan QR codes in Nicegram?</h3>
+                    <div class="faq-answer">
+                        <p>Nicegram is a third-party client for Telegram, and its QR scanning function is similar to the official Telegram app. Click the search icon, then click the QR code icon on the right side of the search bar to open the scanning function. If you encounter issues, you can use our website to scan, then click the link to open in Nicegram.</p>
+                    </div>
+                </div>
+                
+                <a href="pages/troubleshooting.html" class="btn outline">View More FAQs</a>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta">
+                <div class="cta-content">
+                    <h2>Start Using Telegram QR Code Scanner Now</h2>
+                    <p>Simple, fast, and secure way to scan Telegram QR codes, add friends, join groups and channels with one click</p>
+                    <a href="#" class="btn primary" onclick="document.getElementById('start-scan-button').click(); return false;">Start Scanning</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Telegram QR Scanner</h3>
+                    <p>Simple, fast, and secure way to scan Telegram QR codes, add friends, join groups and channels with one click.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/telegram-scan.html">Scan Tutorial</a></li>
+                        <li><a href="pages/add-friends.html">Add Friends</a></li>
+                        <li><a href="pages/desktop-login.html">Desktop Login</a></li>
+                        <li><a href="pages/troubleshooting.html">Troubleshooting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Related Resources</h3>
+                    <ul>
+                        <li><a href="https://telegram.org/" target="_blank">Telegram Official Website</a></li>
+                        <li><a href="https://telegram.org/faq" target="_blank">Telegram FAQ</a></li>
+                        <li><a href="https://telegram.org/apps" target="_blank">Telegram App Downloads</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Telegram QR Code Scanner. This tool is not affiliated with Telegram.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Add JavaScript -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/clipboard-paste.js"></script>
+</body>
+</html>

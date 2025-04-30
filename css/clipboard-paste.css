@@ -1,0 +1,84 @@
+/* 剪贴板粘贴功能样式 */
+
+/* 粘贴容器 */
+.paste-container {
+  width: 100%;
+  max-width: 500px;
+  height: 200px;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-lg) auto;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+}
+
+.paste-container:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.paste-container.drag-over {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.paste-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.paste-text {
+  color: var(--text-light);
+  text-align: center;
+  padding: 0 var(--spacing-lg);
+}
+
+.paste-shortcut {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--background-light);
+  border-radius: var(--radius-small);
+  margin: 0 var(--spacing-xs);
+  font-family: monospace;
+}
+
+.paste-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-medium);
+  display: none;
+}
+
+.paste-preview.visible {
+  display: block;
+}
+
+.paste-clear {
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  width: 24px;
+  height: 24px;
+  background-color: var(--error-color);
+  color: white;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.paste-clear.visible {
+  display: flex;
+}
