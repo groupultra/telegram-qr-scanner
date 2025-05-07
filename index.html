@@ -75,6 +75,7 @@
                     <li><a href="pages/troubleshooting.html">常见问题</a></li>
                     <li class="language-switcher">
                         <a href="index.html" class="active">中文</a>
+                        <a href="tw/index.html">繁體中文</a>
                         <a href="en/index.html">English</a>
                     </li>
                 </ul>
@@ -354,5 +355,34 @@
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/clipboard-paste.js"></script>
+    <script>
+        const languageSwitch = document.getElementById('languageSwitch');
+        const languages = ['中文', '繁體中文', 'English'];
+        let currentIndex = 0;
+
+        languageSwitch.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % languages.length;
+            languageSwitch.textContent = languages[currentIndex];
+            // 这里可以添加切换语言的逻辑
+        });
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Telegram的掃一掃在哪裡？",
+                "acceptedAnswer": {"@type": "Answer","text": "在Telegram應用中，點擊右上角的搜尋圖示，然後在搜尋欄右側會出現二維碼圖示，點擊即可打開掃一掃功能。在某些版本中，您也可以在聯絡人頁面右上角找到二維碼圖示。"}
+            },
+            {
+                "@type": "Question",
+                "name": "為什麼我無法掃描Telegram二維碼？",
+                "acceptedAnswer": {"@type": "Answer","text": "可能的原因包括：攝像頭權限未開啟、二維碼圖片不清晰、網路連線問題或Telegram應用版本過舊。建議檢查這些問題，或嘗試使用我們的網站掃描，然後點擊產生的連結。"}
+            }
+        ]
+    }
+    </script>
 </body>
 </html>

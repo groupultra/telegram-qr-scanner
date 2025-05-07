@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telegram二維碼掃描工具 - 掃描Telegram二維碼並一鍵加入群組、頻道或添加好友。支援攝像頭掃描和圖片上傳，簡單易用。">
+    <meta name="keywords" content="Telegram掃碼,TG掃描,Telegram添加好友,Telegram怎麼掃碼,飛機加好友,Telegram二維碼">
+    <meta name="author" content="Telegram QR Scanner">
+    <meta name="robots" content="index, follow">
+    <title>Telegram二維碼掃描工具 - 一鍵添加好友、加入群組和頻道</title>
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/clipboard-paste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="alternate" href="https://yourdomain.com/index.html" hreflang="zh-CN" />
+    <link rel="alternate" href="https://yourdomain.com/tw/" hreflang="zh-TW" />
+    <link rel="alternate" href="https://yourdomain.com/en/index.html" hreflang="en" />
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../img/favicon.svg" alt="Telegram QR Scanner Logo">
+                <h1>Telegram二維碼掃描</h1>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="/tw/" class="active">首頁</a></li>
+                    <li><a href="telegram-scan.html">掃碼教學</a></li>
+                    <li><a href="add-friends.html">添加好友</a></li>
+                    <li><a href="desktop-login.html">電腦登入</a></li>
+                    <li><a href="troubleshooting.html">常見問題</a></li>
+                    <li class="language-switcher">
+                        <a href="../index.html">中文</a>
+                        <a href="/tw/" class="active">繁體中文</a>
+                        <a href="../en/index.html">English</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Telegram二維碼掃描工具</h1>
+                <p>掃描Telegram二維碼，一鍵添加好友、加入群組和頻道</p>
+            </div>
+            <div class="scanner-container">
+                <div class="scanner-header">
+                    <h2>開始掃描Telegram二維碼</h2>
+                    <p>使用攝像頭掃描二維碼，或上傳二維碼圖片，甚至直接貼上剪貼簿中的圖片</p>
+                </div>
+                <div class="scanner-options">
+                    <button id="start-scan-button" class="btn primary">
+                        <i class="fas fa-camera"></i> 開始掃描
+                    </button>
+                    <button id="stop-scan-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-stop"></i> 停止掃描
+                    </button>
+                    <button id="switch-camera-button" class="btn outline" style="display: none;">
+                        <i class="fas fa-sync-alt"></i> 切換攝像頭
+                    </button>
+                    <label id="file-button" class="btn secondary">
+                        <i class="fas fa-image"></i> 從相簿選擇
+                        <input type="file" id="qr-input-file" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                <div id="paste-container" class="paste-container">
+                    <div class="paste-icon">
+                        <i class="fas fa-paste"></i>
+                    </div>
+                    <div class="paste-text">
+                        <p>將圖片貼到此處 (<span class="paste-shortcut">Ctrl+V</span> 或 <span class="paste-shortcut">⌘+V</span>)</p>
+                        <p>或直接拖放圖片檔案</p>
+                    </div>
+                    <img id="paste-preview" class="paste-preview" src="" alt="預覽">
+                    <div id="paste-clear" class="paste-clear">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div id="qr-reader" style="display: none;"></div>
+                <div id="qr-reader-results" style="display: none;"></div>
+            </div>
+            <div class="features">
+                <div class="features-header">
+                    <h2>為什麼選擇我們的Telegram二維碼掃描工具？</h2>
+                    <p>簡單、快速、安全的Telegram二維碼掃描體驗</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>快速掃描</h3>
+                        <p>即時攝像頭掃描，秒速識別Telegram二維碼，無需等待</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>行動優化</h3>
+                        <p>完美適配手機和平板，隨時隨地掃描Telegram二維碼</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <h3>剪貼簿貼上</h3>
+                        <p>支援直接貼上剪貼簿中的圖片，無需儲存再上傳</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>智慧識別</h3>
+                        <p>自動識別Telegram連結類型，區分用戶、群組和頻道</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>安全可靠</h3>
+                        <p>所有處理在本地完成，不上傳任何資料，保護您的隱私</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>多語言支援</h3>
+                        <p>支援中文、繁體中文和英文介面，滿足不同用戶需求</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tutorial-section">
+                <h2>如何使用Telegram二維碼？</h2>
+                <div class="tutorial-card">
+                    <h3>添加Telegram好友</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>打開Telegram應用</h4>
+                                <p>在您的手機上打開Telegram應用，確保您已登入帳號。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>取得好友的二維碼</h4>
+                                <p>請好友打開Telegram，點擊設定 → 個人資料 → 點擊二維碼圖示生成自己的二維碼。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>使用我們的工具掃描二維碼</h4>
+                                <p>使用本網站掃描好友的二維碼，然後點擊產生的連結直接打開Telegram添加好友。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="add-friends.html" class="btn outline">查看詳細教學</a>
+                </div>
+                <div class="tutorial-card">
+                    <h3>加入Telegram群組或頻道</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>取得群組或頻道的二維碼</h4>
+                                <p>群組管理員或頻道建立者可以產生邀請二維碼分享給您。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>使用我們的工具掃描二維碼</h4>
+                                <p>使用本網站掃描群組或頻道的二維碼，系統會自動識別連結類型。</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>點擊連結加入</h4>
+                                <p>點擊產生的連結，Telegram會自動打開並顯示加入群組或訂閱頻道的選項。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="telegram-scan.html" class="btn outline">查看詳細教學</a>
+                </div>
+            </div>
+            <div class="faq-container">
+                <h2>常見問題</h2>
+                <div class="faq-item">
+                    <h3>Telegram的掃一掃在哪裡？</h3>
+                    <div class="faq-answer">
+                        <p>在Telegram應用中，點擊右上角的搜尋圖示，然後在搜尋欄右側會出現二維碼圖示，點擊即可打開掃一掃功能。在某些版本中，您也可以在聯絡人頁面右上角找到二維碼圖示。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>為什麼我無法掃描Telegram二維碼？</h3>
+                    <div class="faq-answer">
+                        <p>可能的原因包括：攝像頭權限未開啟、二維碼圖片不清晰、網路連線問題或Telegram應用版本過舊。建議檢查這些問題，或嘗試使用我們的網站掃描，然後點擊產生的連結。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>如何在電腦上掃描Telegram二維碼？</h3>
+                    <div class="faq-answer">
+                        <p>您可以使用我們的網站在電腦上透過攝像頭掃描二維碼，或上傳二維碼圖片，甚至直接貼上剪貼簿中的圖片。掃描成功後，點擊產生的連結即可在電腦上打開Telegram。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>Nicegram怎麼掃二維碼？</h3>
+                    <div class="faq-answer">
+                        <p>Nicegram是Telegram的第三方客戶端，其掃碼功能與官方Telegram類似。點擊搜尋圖示，然後在搜尋欄右側點擊二維碼圖示即可打開掃碼功能。如果遇到問題，可以使用我們的網站掃描，然後點擊連結在Nicegram中打開。</p>
+                    </div>
+                </div>
+                <a href="troubleshooting.html" class="btn outline">查看更多常見問題</a>
+            </div>
+            <div class="cta">
+                <div class="cta-content">
+                    <h2>立即開始使用Telegram二維碼掃描工具</h2>
+                    <p>簡單、快速、安全地掃描Telegram二維碼，一鍵添加好友、加入群組和頻道</p>
+                    <a href="#" class="btn primary" onclick="document.getElementById('start-scan-button').click(); return false;">開始掃描</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Telegram二維碼掃描</h3>
+                    <p>簡單、快速、安全地掃描Telegram二維碼，一鍵添加好友、加入群組和頻道。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="/tw/">首頁</a></li>
+                        <li><a href="telegram-scan.html">掃碼教學</a></li>
+                        <li><a href="add-friends.html">添加好友</a></li>
+                        <li><a href="desktop-login.html">電腦登入</a></li>
+                        <li><a href="troubleshooting.html">常見問題</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>相關資源</h3>
+                    <ul>
+                        <li><a href="https://telegram.org/" target="_blank">Telegram官網</a></li>
+                        <li><a href="https://telegram.org/faq" target="_blank">Telegram常見問題</a></li>
+                        <li><a href="https://telegram.org/apps" target="_blank">Telegram應用下載</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Telegram二維碼掃描工具. 本工具與Telegram官方無關。</p>
+            </div>
+        </div>
+    </footer>
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/clipboard-paste.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Telegram的掃一掃在哪裡？",
+          "acceptedAnswer": {"@type": "Answer","text": "在Telegram應用中，點擊右上角的搜尋圖示，然後在搜尋欄右側會出現二維碼圖示，點擊即可打開掃一掃功能。在某些版本中，您也可以在聯絡人頁面右上角找到二維碼圖示。"}
+        },
+        {
+          "@type": "Question",
+          "name": "為什麼我無法掃描Telegram二維碼？",
+          "acceptedAnswer": {"@type": "Answer","text": "可能的原因包括：攝像頭權限未開啟、二維碼圖片不清晰、網路連線問題或Telegram應用版本過舊。建議檢查這些問題，或嘗試使用我們的網站掃描，然後點擊產生的連結。"}
+        }
+      ]
+    }
+    </script>
+</body>
+</html> 

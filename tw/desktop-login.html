@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Telegram電腦版掃碼登入教學 - 詳細了解如何使用手機掃描二維碼登入Telegram桌面版應用。圖文並茂的分步指南，解決常見登入問題。">
+    <meta name="keywords" content="telegram怎麼掃碼登入電腦,telegram掃碼登入,telegram電腦版登入,telegram無法掃碼,telegram電腦版教學">
+    <meta name="author" content="Telegram QR Scanner">
+    <meta name="robots" content="index, follow">
+    <title>Telegram電腦版掃碼登入教學 - 如何使用手機掃描二維碼登入Telegram桌面版</title>
+    <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../img/favicon.svg" alt="Telegram QR Scanner Logo">
+                <h1>Telegram二維碼掃描</h1>
+            </div>
+            <button id="menu-toggle" class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="telegram-scan.html">掃碼教學</a></li>
+                    <li><a href="add-friends.html">添加好友</a></li>
+                    <li><a href="desktop-login.html" class="active">電腦登入</a></li>
+                    <li><a href="troubleshooting.html">常見問題</a></li>
+                    <li class="language-switcher">
+                        <a href="../index.html">中文</a>
+                        <a href="index.html" class="active">繁體中文</a>
+                        <a href="../en/index.html">English</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Telegram電腦版掃碼登入教學</h1>
+                <p>詳細了解如何使用手機掃描二維碼登入Telegram桌面版應用</p>
+                <div class="breadcrumbs">
+                    <a href="index.html">首頁</a> &gt; <span>電腦登入</span>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="content-main">
+                    <div class="card">
+                        <h2>Telegram桌面版二維碼登入簡介</h2>
+                        <p>Telegram提供了便捷的二維碼登入方式，讓您無需輸入手機號碼和驗證碼，就能快速登入桌面版應用。這種方法特別適合在公共電腦上臨時使用Telegram，或者當您不方便接收簡訊驗證碼時。</p>
+                        <p>本教學將詳細介紹如何使用手機掃描二維碼登入Telegram桌面版，包括Windows、macOS和Linux版本，以及Web版Telegram。無論您是首次使用Telegram桌面版，還是遇到了掃碼登入問題，這篇教學都能幫助您順利完成登入過程。</p>
+                    </div>
+                    <div class="tutorial-card">
+                        <h3>如何使用二維碼登入Telegram桌面版</h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>下載並安裝Telegram桌面版</h4>
+                                    <p>首先，您需要下載並安裝適合您作業系統的Telegram桌面版應用：</p>
+                                    <ul>
+                                        <li><strong>Windows版</strong>：從<a href="https://desktop.telegram.org/" target="_blank">Telegram官網</a>下載Windows安裝包</li>
+                                        <li><strong>macOS版</strong>：從<a href="https://macos.telegram.org/" target="_blank">Telegram官網</a>或Mac App Store下載</li>
+                                        <li><strong>Linux版</strong>：從<a href="https://desktop.telegram.org/" target="_blank">Telegram官網</a>下載Linux安裝包，或使用套件管理器安裝</li>
+                                    </ul>
+                                    <p>如果您不想安裝桌面應用，也可以使用<a href="https://web.telegram.org/" target="_blank">Telegram Web版</a>，直接在瀏覽器中訪問。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>打開Telegram桌面版</h4>
+                                    <p>安裝完成後，打開Telegram桌面版應用。如果您是首次使用，或者之前已登出，您將看到登入介面。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>選擇二維碼登入</h4>
+                                    <p>在登入介面，您會看到兩種登入選項：</p>
+                                    <ul>
+                                        <li>使用手機號碼登入</li>
+                                        <li>使用二維碼登入（QR Code Login）</li>
+                                    </ul>
+                                    <p>點擊<strong>使用二維碼登入</strong>選項，桌面版將顯示一個二維碼。</p>
+                                    <p>注意：在某些版本中，二維碼可能會直接顯示，無需額外點擊。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>準備手機端Telegram</h4>
+                                    <p>確保您的手機上已安裝並登入了Telegram應用。您需要使用已登入的手機應用來掃描電腦上的二維碼。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>在手機上打開掃碼功能</h4>
+                                    <p>在手機Telegram應用中，按照以下步驟打開掃碼功能：</p>
+                                    <ol>
+                                        <li>點擊左上角的<strong>三橫線選單</strong>或向右滑動打開側邊欄</li>
+                                        <li>點擊<strong>設定</strong></li>
+                                        <li>點擊<strong>裝置</strong>（在某些版本中可能顯示為「裝置」或「已登入的裝置」）</li>
+                                        <li>點擊<strong>掃描二維碼</strong>或右上角的<strong>+</strong>圖示，然後選擇<strong>掃描二維碼</strong></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">6</div>
+                                <div class="step-content">
+                                    <h4>掃描電腦螢幕上的二維碼</h4>
+                                    <p>使用手機攝像頭對準電腦螢幕上顯示的二維碼，保持穩定，等待自動識別。確保光線充足，二維碼清晰可見。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">7</div>
+                                <div class="step-content">
+                                    <h4>確認登入</h4>
+                                    <p>掃描成功後，手機上會顯示確認登入提示，包含以下資訊：</p>
+                                    <ul>
+                                        <li>裝置名稱（如「Windows電腦」、「MacBook」等）</li>
+                                        <li>位置信息（基於IP位址）</li>
+                                        <li>登入時間</li>
+                                    </ul>
+                                    <p>確認資訊無誤後，點擊<strong>確認</strong>或<strong>登入</strong>按鈕完成登入。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">8</div>
+                                <div class="step-content">
+                                    <h4>登入完成</h4>
+                                    <p>確認後，電腦上的Telegram桌面版將自動登入到您的帳號。現在您可以在桌面版上使用Telegram的所有功能了。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tutorial-card">
+                        <h3>無法掃描二維碼？使用我們的工具輔助登入</h3>
+                        <p>如果您在使用手機掃描Telegram桌面版二維碼時遇到問題，可以嘗試使用我們的工具輔助掃描。</p>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>截圖保存二維碼</h4>
+                                    <p>在電腦上截取Telegram登入介面的二維碼圖片，並保存到本地。</p>
+                                    <ul>
+                                        <li>Windows：按<strong>Win+Shift+S</strong>或使用截圖工具</li>
+                                        <li>macOS：按<strong>Command+Shift+4</strong>然後選擇區域</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>使用我們的掃碼工具</h4>
+                                    <p>訪問我們的<a href="index.html">Telegram二維碼掃描工具</a>，上傳保存的二維碼圖片或直接貼上剪貼簿中的圖片。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>獲取登入連結</h4>
+                                    <p>我們的工具會解析二維碼並生成Telegram登入連結。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>在手機上打開連結</h4>
+                                    <p>將生成的連結發送到您的手機（透過簡訊、電子郵件或其他方式），然後在手機上點擊連結。連結會自動在Telegram應用中打開，並顯示登入確認介面。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>確認登入</h4>
+                                    <p>在手機上確認登入請求，完成桌面版的登入過程。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="index.html" class="btn primary">使用我們的掃碼工具</a>
+                    </div>
+                    <div class="tutorial-card">
+                        <h3>Telegram桌面版登入安全提示</h3>
+                        <p>使用二維碼登入Telegram桌面版時，請注意以下安全事項：</p>
+                        <div class="security-tips">
+                            <div class="security-tip">
+                                <h4>定期檢查已登入裝置</h4>
+                                <p>在手機Telegram應用中，定期檢查「設定→裝置」中的已登入裝置列表，確保沒有未經授權的裝置登入您的帳號。</p>
+                            </div>
+                            <div class="security-tip">
+                                <h4>在公共電腦上使用後記得登出</h4>
+                                <p>如果您在公共電腦或他人的電腦上使用Telegram，使用完畢後請務必登出。點擊左上角的三橫線選單，然後點擊底部的「登出」。</p>
+                            </div>
+                            <div class="security-tip">
+                                <h4>啟用兩步驗證</h4>
+                                <p>為提高帳號安全性，建議啟用兩步驗證。在手機Telegram應用中，進入「設定→隱私與安全→兩步驗證」進行設置。</p>
+                            </div>
+                            <div class="security-tip">
+                                <h4>不要掃描來源不明的二維碼</h4>
+                                <p>只掃描您自己在可信裝置上生成的Telegram登入二維碼，不要掃描來源不明的二維碼，以防帳號被盜。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="faq-container">
+                        <h3>Telegram電腦版掃碼登入常見問題</h3>
+                        <div class="faq-item">
+                            <h3>為什麼我無法掃描Telegram桌面版的二維碼？</h3>
+                            <div class="faq-answer">
+                                <p>可能的原因包括：</p>
+                                <ul>
+                                    <li>手機攝像頭無法對焦或光線不足</li>
+                                    <li>電腦螢幕亮度太低或有反光</li>
+                                    <li>二維碼顯示不完整或太小</li>
+                                    <li>手機Telegram應用版本過舊</li>
+                                </ul>
+                                <p>解決方法：調整光線和距離，確保二維碼完整清晰可見；更新Telegram應用到最新版本；或使用我們的工具輔助掃描。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Telegram桌面版二維碼過期了怎麼辦？</h3>
+                            <div class="faq-answer">
+                                <p>Telegram登入二維碼有效期通常為一分鐘。如果二維碼過期，您會看到「二維碼已過期」的提示。此時，只需點擊「刷新二維碼」或「重新生成」按鈕，獲取新的二維碼即可。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>我可以同時在多台裝置上登入Telegram嗎？</h3>
+                            <div class="faq-answer">
+                                <p>可以，Telegram支援多裝置同時登入。您可以在多台電腦、手機和平板電腦上同時登入您的Telegram帳號，所有裝置都會同步訊息和通知。</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <h3>如何從Telegram桌面版登出？</h3>
+                            <div class="faq-answer">
+                                <p>在Telegram桌面版中，點擊左上角的三橫線選單，滾動到底部，點擊「登出」即可。如果您想遠端登出某台裝置，可以在手機Telegram應用中，進入「設定→裝置」，找到相應裝置，點擊「登出」。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="related-articles">
+                        <h3>相關文章</h3>
+                        <div class="article-grid">
+                            <a href="telegram-scan.html" class="article-card">
+                                <h4>Telegram掃碼教學</h4>
+                                <p>學習如何使用Telegram的掃碼功能，輕鬆添加好友、加入群組和頻道。</p>
+                            </a>
+                            <a href="add-friends.html" class="article-card">
+                                <h4>Telegram如何添加好友</h4>
+                                <p>學習多種添加Telegram好友的方法，包括透過用戶名、手機號碼和二維碼。</p>
+                            </a>
+                            <a href="troubleshooting.html" class="article-card">
+                                <h4>Telegram掃碼問題解決方案</h4>
+                                <p>遇到Telegram掃碼問題？查看我們的故障排除指南。</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <div class="widget">
+                        <h3>快速導航</h3>
+                        <ul>
+                            <li><a href="#如何使用二維碼登入Telegram桌面版">如何使用二維碼登入Telegram桌面版</a></li>
+                            <li><a href="#無法掃描二維碼？使用我們的工具輔助登入">無法掃描二維碼？使用我們的工具輔助登入</a></li>
+                            <li><a href="#Telegram桌面版登入安全提示">Telegram桌面版登入安全提示</a></li>
+                            <li><a href="#Telegram電腦版掃碼登入常見問題">常見問題</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h3>實用提示</h3>
+                        <div class="tips-list">
+                            <div class="tip-item">
+                                <h4>定期檢查已登入裝置</h4>
+                                <p>在手機Telegram應用中，定期檢查「設定→裝置」中的已登入裝置列表，確保沒有未經授權的裝置登入您的帳號。</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>在公共電腦上使用後記得登出</h4>
+                                <p>如果您在公共電腦或他人的電腦上使用Telegram，使用完畢後請務必登出。點擊左上角的三橫線選單，然後點擊底部的「登出」。</p>
+                            </div>
+                            <div class="tip-item">
+                                <h4>啟用兩步驗證</h4>
+                                <p>為提高帳號安全性，建議啟用兩步驗證。在手機Telegram應用中，進入「設定→隱私與安全→兩步驗證」進行設置。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h3>線上掃碼工具</h3>
+                        <p>使用我們的線上工具掃描Telegram二維碼，支援攝像頭掃描、上傳圖片和剪貼簿貼上。</p>
+                        <a href="index.html" class="btn primary">立即使用</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>關於我們</h3>
+                    <p>我們提供專業的Telegram二維碼掃描服務，幫助用戶輕鬆完成Telegram相關操作。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>快速連結</h3>
+                    <ul>
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="telegram-scan.html">掃碼教學</a></li>
+                        <li><a href="add-friends.html">添加好友</a></li>
+                        <li><a href="desktop-login.html">電腦登入</a></li>
+                        <li><a href="troubleshooting.html">常見問題</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>聯絡我們</h3>
+                    <p>如有任何問題或建議，請隨時與我們聯繫。</p>
+                    <p>Email: support@telegramqrscanner.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Telegram QR Scanner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
