@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // 初始化扫描器和摄像头列表
 function initializeScanner() {
     console.log("Initializing scanner...");
+    if (!Html5Qrcode) {
+        console.error("Html5Qrcode is not defined");
+        return;
+    }
     Html5Qrcode.getCameras().then(devices => {
         console.log("Cameras found:", devices);
         window.cameraList = devices;
